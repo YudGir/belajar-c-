@@ -189,4 +189,6 @@ int main() {
 
 
     //==================================================================
+
+    //NOTE: FOR SIX ON 'HALF-TRIANGLE' TOOK : ALMOST 4 HOURS STRAIGHT
 }
