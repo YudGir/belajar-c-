@@ -89,23 +89,20 @@ int factorial (int angka) {
 int nonSentinelSearch(Data d[], int totalData, string cariNama) {
     for (int i = 0; i < totalData; i++) {
         if (d[i].nama_ujian == cariNama) {
-            return i; // Langsung kembalikan indeksnya kalau ketemu
+            return i; 
         }
     }
-    return -1; // Kembalikan -1 kalau sampai akhir tidak ketemu
+    return -1; 
 }
 
 int sentinelSearch(Data d[], int totalData, string cariNama) {
-    // Taruh nilai yang dicari di ujung array sebagai sentinel
     d[totalData].nama_ujian = cariNama; 
     int i = 0;
 
-    // Loop terus tanpa cek batas array, pasti akan berhenti karena ada sentinel
     while (d[i].nama_ujian != cariNama) {
         i++;
     }
 
-    // Jika berhentinya sebelum indeks sentinel, berarti data aslinya memang ketemu
     if (i < totalData) {
         return i;
     }
@@ -120,12 +117,12 @@ int binarySearch(Data d[], int totalData, string cariNama) {
         int mid = low + (high - low) / 2;
 
         if (d[mid].nama_ujian == cariNama) {
-            return mid; // Ketemu di tengah!
+            return mid;
         }
         if (d[mid].nama_ujian < cariNama) {
-            low = mid + 1; // Cari di sebelah kanan
+            low = mid + 1;
         } else {
-            high = mid - 1; // Cari di sebelah kiri
+            high = mid - 1; 
         }
     }
     return -1;
@@ -293,7 +290,6 @@ void quickSortMenu(Data d[], int totalData) {
         cout << "---------------------\n";
     }
 
-    // Panggil fungsi rekursif aslinya di sini
     quickSort(d, 0, totalData - 1);
 
     cout << "\n=== SETELAH DISORTING ===\n";
@@ -317,7 +313,6 @@ void exportData(Data d[], int totalData) {
 
     if (fileTersimpan.is_open()) {
         for (int i = 0; i < totalData; i++) {
-            // Tulis nama (lalu ENTER) baru tulis nilai (lalu ENTER lagi)
             fileTersimpan << d[i].nama_ujian << endl;
             fileTersimpan << d[i].nilai << endl;
         }
@@ -344,9 +339,8 @@ void importData() {
     int nilaiUjian[20];
     int hitungData = 0;
 
-    // WS (Whitespace stripper) digunakan untuk membersihkan enter sisa sebelum getline
     while (hitungData < 20 && getline(fileMasuk >> ws, namaUjian[hitungData])) {
-        fileMasuk >> nilaiUjian[hitungData]; // Baca baris berikutnya sebagai integer nilai
+        fileMasuk >> nilaiUjian[hitungData]; 
         hitungData++;
     }
 
