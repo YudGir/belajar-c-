@@ -19,11 +19,12 @@ void inputData (Data d[], int &banyakData, int banyak) {
     } else {
         int batasAkhir = banyakData + banyak;
         for (int i = banyakData; i < batasAkhir; i++) {
+            cout << "Data ke-" << i + 1 << endl;
             cout << "Nama ujian : "; getline(cin >> ws, d[i].nama_ujian);
             cout << "Nilai      : "; cin >> d[i].nilai;
-            banyakData ++;
             cout << endl;
         }
+        banyakData = batasAkhir;
     }
 }
 
@@ -207,7 +208,7 @@ void insertionSort(Data d[], int totalData) {
     }
 
     for (int i = 1; i < totalData; i++) {
-        auto key = d[i];
+        Data key = d[i];
         int j = i - 1;
         while (j >= 0 && d[j].nilai > key.nilai) {
             d[j + 1] = d[j];
